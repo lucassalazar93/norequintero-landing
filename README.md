@@ -1,12 +1,28 @@
-# React + Vite
+# 🍰 NoreQuintero Landing
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Landing page moderna y responsiva para **Nore Quintero Gourmet**, enfocada en resaltar los productos de repostería artesanal y brindar una experiencia de usuario premium.
 
-Currently, two official plugins are available:
+## ✨ Características
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- ⚛️ **Frontend en React + Vite**
+- 🎨 Estilos personalizados con CSS modular
+- 📱 **Diseño 100% responsive** (desktop, tablet y móvil)
+- 🛒 Carrito de compras funcional con contador global
+- 📑 Secciones:
+  - Hero (bienvenida)
+  - Catálogo de postres
+  - Sobre nosotros
+  - Embudo con beneficios
+  - Footer con políticas y créditos
+- 📜 Páginas legales:  
+  - Política de privacidad  
+  - Términos y condiciones  
+  - Política de cookies  
 
-## Expanding the ESLint configuration
+## 🚀 Instalación y uso
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Clona el repositorio y entra en la carpeta:
+
+```bash
+git clone https://github.com/lucassalazar93/norequintero-landing.git
+cd norequintero-landing
