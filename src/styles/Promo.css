@@ -1,0 +1,265 @@
+/* =========================================
+   🎉 SECCIÓN PROMO - PREMIUM NIVEL DIOS
+========================================= */
+.promo {
+  margin: 3.5rem auto;
+  padding: 3rem 2rem;
+  max-width: 1400px;
+
+  /* 🔹 Fondo con gradiente vibrante estilo gourmet */
+  background: linear-gradient(90deg, #ff9acb 0%, #ffb6a9 50%, #ffe8c8 100%);
+
+  border-radius: 28px;
+  text-align: center;
+  box-shadow: 0 16px 42px rgba(255, 77, 122, 0.3),
+    inset 0 0 25px rgba(255, 255, 255, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+/* 🔹 Brillo animado overlay */
+.promo::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.25) 0%,
+    transparent 70%
+  );
+  animation: glowRotate 14s infinite linear;
+  z-index: 0;
+}
+
+@keyframes glowRotate {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  100% {
+    transform: rotate(360deg) scale(1.2);
+  }
+}
+
+/* =========================================
+   🔥 ENCABEZADO CON GRADIENTE GOURMET
+========================================= */
+.promo h2 {
+  font-size: 2.8rem;
+  font-weight: 900;
+  margin-bottom: 0.8rem;
+
+  /* Gradiente de texto gourmet */
+  background: linear-gradient(90deg, #6d003b 0%, #b83260 40%, #ff4e7a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+
+  position: relative;
+  z-index: 1;
+}
+
+.promo p {
+  font-size: 1.15rem;
+  margin-bottom: 2.5rem;
+  color: #fffafc;
+  opacity: 0.95;
+  position: relative;
+  z-index: 1;
+}
+
+/* =========================================
+   🃏 GRID DE PROMOS
+========================================= */
+.promo .catalogo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* =========================================
+   🧁 TARJETAS
+========================================= */
+.promo .card {
+  background: #fff;
+  border-radius: 22px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  min-height: 420px;
+}
+
+.promo .card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 16px 34px rgba(255, 77, 122, 0.35);
+}
+
+/* Imagen */
+.promo .card .img-wrapper {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.promo .card img {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  border-radius: 16px;
+  transition: transform 0.4s ease, filter 0.4s ease;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+.promo .card:hover img {
+  transform: scale(1.05);
+  filter: brightness(1.08);
+}
+
+/* Badge */
+.badge-destacado {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: linear-gradient(90deg, #ff4e7a, #ff82a0);
+  color: #fff;
+  font-weight: 600;
+  padding: 0.45rem 0.9rem;
+  border-radius: 16px;
+  font-size: 0.85rem;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.18);
+}
+
+/* Nombre */
+.promo .card h3 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #2c2c54;
+  text-align: center;
+}
+
+/* Descripción */
+.promo .descripcion {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.5;
+  margin-bottom: 0.6rem;
+  text-align: center;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  transition: all 0.3s ease;
+}
+
+.promo .descripcion.expandida {
+  -webkit-line-clamp: unset;
+  max-height: none;
+}
+
+/* Botón ver más */
+.promo .ver-mas {
+  font-size: 0.9rem;
+  color: #ff4e7a;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-block;
+  margin-bottom: 0.8rem;
+  transition: color 0.3s ease;
+}
+
+.promo .ver-mas:hover {
+  color: #b83260;
+}
+
+/* =========================================
+   💲 PRECIOS
+========================================= */
+.promo .precio-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.8rem;
+}
+
+.promo .precio {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #ff4e7a;
+}
+
+.promo .precio.tachado {
+  text-decoration: line-through;
+  color: #999;
+  font-size: 1rem;
+}
+
+/* Texto de promo */
+.promo .promo-text {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #b83260;
+  background: #fff0f5;
+  padding: 0.5rem 1rem;
+  border-radius: 14px;
+  display: inline-block;
+  margin-bottom: 1rem;
+  box-shadow: 0 3px 10px rgba(255, 77, 122, 0.15);
+}
+
+/* =========================================
+   🔘 BOTÓN
+========================================= */
+.promo .btn-destacado {
+  margin-top: auto;
+  background: linear-gradient(135deg, #b83260, #ff4e7a);
+  color: #fff;
+  font-weight: 700;
+  padding: 0.9rem;
+  border-radius: 16px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  box-shadow: 0 8px 20px rgba(255, 77, 122, 0.3);
+}
+
+.promo .btn-destacado:hover {
+  background: linear-gradient(135deg, #ff4e7a, #ff82a0);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(255, 77, 122, 0.4);
+}
+
+/* =========================================
+   📱 RESPONSIVE
+========================================= */
+@media (max-width: 1024px) {
+  .promo h2 {
+    font-size: 2.1rem;
+  }
+  .promo p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .promo {
+    padding: 1.8rem 1.2rem;
+    border-radius: 18px;
+  }
+  .promo h2 {
+    font-size: 1.8rem;
+  }
+  .promo p {
+    font-size: 0.95rem;
+  }
+}

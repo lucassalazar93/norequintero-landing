@@ -1,0 +1,34 @@
+.legal-page {
+  padding: 4rem 2rem;
+  background: #fffafc;
+  color: #333;
+  font-family: "Poppins", sans-serif;
+  line-height: 1.7;
+}
+
+.legal-page .container {
+  max-width: 900px;
+  margin: auto;
+}
+
+.legal-page h1 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(90deg, #6d003b, #ff4e7a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.legal-page h2 {
+  font-size: 1.4rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: #b83260;
+}
+
+.legal-page p,
+.legal-page ul {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}

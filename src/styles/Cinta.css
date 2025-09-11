@@ -1,0 +1,88 @@
+.cinta {
+  width: 100%;
+  overflow: hidden;
+  background: linear-gradient(270deg, #ff4e7a, #ff7aa2, #ff84ab, #ff4e7a);
+  background-size: 300% 300%;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 0.8rem 0;
+  position: relative;
+  z-index: 5;
+
+  /* 🔮 Animación de fondo en gradiente */
+  animation: bgFlow 12s ease infinite;
+}
+
+/* 🔄 Texto en movimiento */
+.cinta__track {
+  display: inline-block;
+  white-space: nowrap;
+  animation: scroll 45s linear infinite;
+}
+
+/* ✨ Texto mágico */
+.cinta__track span {
+  margin: 0 2rem;
+  letter-spacing: 1px;
+  display: inline-block;
+  background: linear-gradient(90deg, #fff, #ffe6f0, #fff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+/* 🖱️ Pausar animación al pasar el mouse */
+.cinta:hover .cinta__track {
+  animation-play-state: paused;
+}
+
+/* 🎞️ Animación scroll infinito */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* ✨ Brillo de texto */
+@keyframes shimmer {
+  0% {
+    opacity: 0.9;
+  }
+  50% {
+    opacity: 1;
+    filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.8));
+  }
+  100% {
+    opacity: 0.9;
+  }
+}
+
+/* 🌈 Animación del gradiente de fondo */
+@keyframes bgFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* 📱 Mobile */
+@media (max-width: 768px) {
+  .cinta {
+    font-size: 0.9rem;
+    padding: 0.6rem 0;
+  }
+
+  .cinta__track span {
+    margin: 0 1rem;
+    letter-spacing: 0.5px;
+  }
+}

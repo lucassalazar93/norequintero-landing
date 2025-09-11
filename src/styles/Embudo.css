@@ -1,0 +1,251 @@
+/* =========================================
+   🍰 SECCIÓN EMBUDO - PREMIUM GOURMET
+========================================= */
+.embudo {
+  background: linear-gradient(135deg, #0f0f2d 0%, #1a0f2d 100%);
+  color: white;
+  padding: 6rem 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ✨ Decoración de fondo */
+.embudo::before,
+.embudo::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.15;
+  filter: blur(120px);
+  z-index: 0;
+}
+.embudo::before {
+  width: 300px;
+  height: 300px;
+  background: #ff4e7a;
+  top: -100px;
+  left: -100px;
+}
+.embudo::after {
+  width: 350px;
+  height: 350px;
+  background: #ffb6c1;
+  bottom: -120px;
+  right: -100px;
+}
+
+.embudo-content {
+  max-width: 950px;
+  margin: auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* 🎨 Título con gradiente gourmet */
+.embudo h2 {
+  font-size: 2.8rem;
+  font-weight: 900;
+  margin-bottom: 1rem;
+  background: linear-gradient(90deg, #ff84ab, #ffc6d9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.embudo p {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: #ddd;
+  margin-bottom: 3rem;
+}
+
+/* 🎡 Swiper beneficios */
+.swiper-container {
+  margin-bottom: 3rem;
+}
+
+.beneficio {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px) saturate(160%);
+  border-radius: 1.6rem;
+  padding: 2.2rem 1.8rem;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+  transition: all 0.4s ease;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 0.8s forwards;
+}
+.beneficio:hover {
+  background: rgba(255, 255, 255, 0.12);
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 18px 36px rgba(255, 77, 122, 0.35);
+}
+
+/* Icono circular */
+.beneficio .icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff4e7a, #ff82a0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  color: #fff;
+  margin: 0 auto 1rem auto;
+  box-shadow: 0 6px 16px rgba(255, 77, 122, 0.4);
+}
+
+/* Texto */
+.beneficio h4 {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 0.6rem;
+}
+.beneficio p {
+  color: #ddd;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Animación tarjetas */
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 📧 Formulario CTA */
+.cta-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 600px;
+  margin: auto;
+  margin-bottom: 2.2rem;
+}
+.cta-form input {
+  padding: 1.1rem;
+  border-radius: 12px;
+  border: none;
+  font-size: 1rem;
+  width: 100%;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+.cta-form input:focus {
+  outline: none;
+  border: 2px solid #ff4e7a;
+  box-shadow: 0 0 12px rgba(255, 78, 122, 0.6);
+}
+.cta-form button {
+  background: linear-gradient(135deg, #ff4e7a, #ff7aa2);
+  border: none;
+  padding: 1.1rem;
+  color: white;
+  font-weight: 700;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1.05rem;
+  box-shadow: 0 8px 20px rgba(255, 78, 122, 0.4);
+}
+.cta-form button:hover {
+  background: linear-gradient(135deg, #ff7aa2, #ff4e7a);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(255, 78, 122, 0.55);
+}
+
+/* 🍰 Botones CTA secundarios */
+.cta-botones {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+/* Botón premium */
+.ordenar-hero {
+  background: linear-gradient(135deg, #ff4e7a, #ff7aa2);
+  color: white;
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(255, 78, 122, 0.4);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+  overflow: hidden;
+}
+.ordenar-hero:hover {
+  background: linear-gradient(135deg, #ff7aa2, #ff4e7a);
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 12px 28px rgba(255, 78, 122, 0.55);
+}
+.ordenar-hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.35),
+    transparent
+  );
+  transform: skewX(-25deg);
+  transition: 0.6s;
+}
+.ordenar-hero:hover::after {
+  left: 100%;
+}
+
+/* Botón blanco secundario */
+.blanco {
+  background: transparent;
+  color: white;
+  padding: 0.8rem 1.8rem;
+  border: 2px solid white;
+  border-radius: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.blanco:hover {
+  background: #fff;
+  color: #0f0f2d;
+  transform: translateY(-2px);
+}
+
+/* ⚖️ Legal */
+.legal {
+  margin-top: 2.5rem;
+  font-size: 0.85rem;
+  color: #aaa;
+}
+
+/* 📱 Responsive */
+@media (max-width: 768px) {
+  .embudo {
+    padding: 4rem 1.5rem;
+  }
+  .embudo h2 {
+    font-size: 2.1rem;
+  }
+  .cta-form {
+    gap: 0.8rem;
+  }
+}

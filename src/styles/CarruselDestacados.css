@@ -1,0 +1,181 @@
+/* =========================================
+   🏆 CARRUSEL DESTACADOS - PREMIUM
+========================================= */
+.carrusel-destacados {
+  margin: 4rem auto 6rem;
+  position: relative;
+  z-index: 1;
+  max-width: 1280px;
+  padding: 0 1rem;
+}
+
+/* Título y subtítulo */
+.carrusel-title {
+  font-family: "Playfair Display", serif;
+  font-size: 2.6rem;
+  font-weight: 900;
+  color: #b83260;
+  margin-bottom: 0.5rem;
+  text-align: center;
+  text-shadow: 0 4px 12px rgba(184, 50, 96, 0.2);
+  letter-spacing: 0.5px;
+}
+
+.carrusel-subtitle {
+  font-size: 1.15rem;
+  color: #555;
+  margin: 0 auto 3rem;
+  opacity: 0.9;
+  text-align: center;
+  max-width: 680px;
+  line-height: 1.6;
+}
+
+/* =========================================
+   🔄 SWIPER CONFIG
+========================================= */
+.carrusel-destacados .swiper {
+  padding-bottom: 3rem; /* espacio para paginación */
+}
+
+.carrusel-destacados .swiper-wrapper {
+  transition-timing-function: linear !important; /* cinta infinita */
+}
+
+.carrusel-destacados .swiper-slide {
+  width: 320px !important; /* ancho fijo */
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  height: auto;
+}
+
+/* =========================================
+   🧁 TARJETAS DENTRO DEL CARRUSEL
+========================================= */
+.carrusel-destacados .card {
+  width: 100%;
+  min-height: 480px;
+  max-height: 520px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 22px;
+  background: #fff;
+  overflow: hidden;
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  text-align: left;
+  position: relative;
+}
+
+.carrusel-destacados .card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-top-left-radius: 22px;
+  border-top-right-radius: 22px;
+}
+
+.carrusel-destacados .card h3 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: #2d0039;
+  margin: 1rem 1.2rem 0.5rem;
+}
+
+.carrusel-destacados .card .precio {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #b30059;
+  margin: 0 1.2rem 1.2rem;
+}
+
+/* Hover */
+.carrusel-destacados .swiper-slide-active .card {
+  transform: scale(1.04);
+  box-shadow: 0 14px 40px rgba(255, 120, 160, 0.25);
+  transition: all 0.35s ease;
+}
+
+/* =========================================
+   ⭐ BADGE DESTACADO
+========================================= */
+.badge-destacado {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: linear-gradient(135deg, #ff4e7a, #ff82a0);
+  color: #fff;
+  padding: 6px 14px;
+  font-size: 0.85rem;
+  border-radius: 999px;
+  font-weight: 700;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+  animation: pulse 2s infinite;
+  z-index: 2;
+}
+
+/* Animación badge */
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.85;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+}
+
+/* =========================================
+   ➡️ SWIPER NAVIGATION
+========================================= */
+.swiper-button-next,
+.swiper-button-prev {
+  color: #ff4e7a !important;
+  font-weight: bold;
+  transform: scale(1.1);
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  transform: scale(1.25);
+  color: #b83260 !important;
+}
+
+.swiper-pagination-bullet {
+  background: #ff4e7a !important;
+  opacity: 0.4;
+  transform: scale(1);
+  transition: all 0.3s ease;
+}
+
+.swiper-pagination-bullet-active {
+  background: #b83260 !important;
+  opacity: 1;
+  transform: scale(1.3);
+}
+
+/* =========================================
+   📱 RESPONSIVE
+========================================= */
+@media (max-width: 768px) {
+  .carrusel-title {
+    font-size: 2rem;
+  }
+  .carrusel-subtitle {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+  .carrusel-destacados .swiper-slide {
+    width: 260px !important;
+  }
+  .carrusel-destacados .card img {
+    height: 180px;
+  }
+}

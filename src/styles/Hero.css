@@ -1,0 +1,245 @@
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 3rem 2rem;
+  background: linear-gradient(135deg, #fff0f5 0%, #ffffff 100%);
+  gap: 3rem;
+  flex-wrap: wrap;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Columna izquierda */
+.hero-content {
+  flex: 1;
+  max-width: 580px;
+  z-index: 2;
+  animation: fadeInLeft 1s ease forwards;
+}
+
+/* Etiqueta gourmet */
+.hero-label {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.7);
+  color: #6d003b;
+  padding: 6px 18px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  font-family: "Poppins", sans-serif;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Tipografía premium */
+.hero-title {
+  font-size: 3rem;
+  font-weight: 700;
+  font-family: "Playfair Display", serif;
+  line-height: 1.2;
+  background: linear-gradient(90deg, #6d003b, #ff4e7a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0 0 0.75rem 0;
+}
+
+.hero-subtitle {
+  font-family: "Great Vibes", cursive;
+  font-size: 1.3rem;
+  color: #b20047;
+  margin-bottom: 1rem;
+}
+
+.hero-text {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #333;
+  margin-bottom: 2rem;
+  max-width: 500px;
+}
+
+/* 🚚 Promoción */
+.hero-promo {
+  background: linear-gradient(to right, #fcb69f, #ffecd2);
+  color: #6d003b;
+  font-weight: 600;
+  padding: 0.9rem 1.4rem;
+  border-radius: 14px;
+  margin: 1rem 0 1.8rem;
+  display: inline-block;
+  font-size: 1rem;
+  box-shadow: 0 6px 18px rgba(252, 182, 159, 0.35);
+  animation: pulsePromo 2s infinite;
+}
+
+.hero-promo strong {
+  color: #000;
+  margin-left: 4px;
+}
+
+@keyframes pulsePromo {
+  0% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+}
+
+/* Botones */
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.8rem;
+}
+
+.btn-primary {
+  background: linear-gradient(to right, #ff84ab, #ffc6d9);
+  border: none;
+  color: #fff;
+  font-weight: bold;
+  padding: 0.85rem 1.8rem;
+  border-radius: 50px;
+  cursor: pointer;
+  font-family: "Poppins", sans-serif;
+  box-shadow: 0 6px 20px rgba(255, 133, 165, 0.35);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.btn-primary:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 24px rgba(255, 78, 122, 0.4);
+}
+
+.btn-secondary {
+  background: #fff;
+  color: #0f0f2d;
+  border: 2px solid #ddd;
+  padding: 0.85rem 1.8rem;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  font-family: "Poppins", sans-serif;
+  transition: all 0.3s ease;
+}
+.btn-secondary:hover {
+  border-color: #ff4e7a;
+  color: #ff4e7a;
+  transform: translateY(-2px);
+}
+
+/* Reviews */
+.hero-review {
+  font-family: "Poppins", sans-serif;
+  color: #555;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+/* Imagen estilo retrato gourmet */
+.hero-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-image img {
+  border-radius: 50%;
+  border: 6px solid #ffc6d9;
+  box-shadow: 0 0 25px rgba(255, 192, 203, 0.35);
+  max-width: 420px;
+  width: 100%;
+  z-index: 2;
+  position: relative;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.hero-image img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 35px rgba(255, 78, 122, 0.45);
+}
+
+/* Círculos decorativos */
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.25;
+  animation: float 6s ease-in-out infinite;
+}
+.circle.pink {
+  width: 90px;
+  height: 90px;
+  background: #ff4e7a;
+  top: 10%;
+  right: 15%;
+}
+.circle.yellow {
+  width: 60px;
+  height: 60px;
+  background: #ffd166;
+  bottom: 15%;
+  left: 10%;
+  animation-delay: 2s;
+}
+.circle.blue {
+  width: 70px;
+  height: 70px;
+  background: #4cc9f0;
+  top: 75%;
+  right: 20%;
+  animation-delay: 4s;
+}
+
+/* Animaciones */
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem 1.5rem;
+  }
+  .hero-content {
+    margin: 0 auto;
+  }
+  .hero-text {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hero-buttons {
+    justify-content: center;
+  }
+  .hero-image img {
+    margin-top: 1.5rem;
+    max-width: 300px;
+  }
+}
