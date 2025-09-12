@@ -114,7 +114,39 @@
   background-size: 200% 100%;
 }
 
-/* ✨ Animación shimmer */
+/* =========================================
+   🗂️ CINTAS POR CATEGORÍA (Swiper)
+========================================= */
+.categoria-bloque {
+  margin: 4rem 0;
+  position: relative;
+  z-index: 2;
+}
+
+.categoria-bloque .swiper {
+  padding: 1rem 0 2rem;
+}
+
+.categoria-bloque .swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.categoria-bloque .swiper-slide:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.slide-wrapper {
+  width: 100%;
+  max-width: 320px;
+}
+
+/* =========================================
+   ✨ ANIMACIONES
+========================================= */
 @keyframes shimmer {
   0% {
     background-position: -200px 0;
@@ -124,39 +156,6 @@
   }
 }
 
-/* =========================================
-   🗂️ GRID DE PRODUCTOS
-========================================= */
-.catalogo-grid {
-  display: grid;
-  gap: 3rem;
-  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-  justify-items: center;
-  margin-top: 3.5rem;
-  position: relative;
-  z-index: 1;
-}
-
-/* Animación de entrada progresiva */
-.catalogo-grid .card {
-  opacity: 0;
-  transform: translateY(30px) scale(0.96);
-  animation: fadeInUp 0.8s ease-out forwards;
-}
-
-.catalogo-grid .card:nth-child(2) {
-  animation-delay: 0.15s;
-}
-.catalogo-grid .card:nth-child(3) {
-  animation-delay: 0.3s;
-}
-.catalogo-grid .card:nth-child(4) {
-  animation-delay: 0.45s;
-}
-
-/* =========================================
-   ✨ ANIMACIONES
-========================================= */
 @keyframes fadeUp {
   to {
     opacity: 1;
@@ -168,16 +167,6 @@
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
-  }
-}
-
-@keyframes bounce {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-6px);
   }
 }
 
@@ -195,14 +184,14 @@
     font-size: 1.05rem;
     margin-bottom: 2.5rem;
   }
-  .catalogo-grid {
-    gap: 2rem;
-  }
   .subtitulo-catalogo {
     font-size: 1.8rem;
     margin: 3rem 0 1.5rem;
   }
   .subtitulo-catalogo::after {
     height: 3px;
+  }
+  .slide-wrapper {
+    max-width: 240px;
   }
 }

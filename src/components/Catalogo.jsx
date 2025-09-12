@@ -1,14 +1,36 @@
 // src/components/Catalogo.jsx
 import React from "react";
-import { motion } from "framer-motion";
 import productos from "../data/productos";
 import "../styles/Catalogo.css";
 import CarruselDestacados from "./CarruselDestacados";
 import Promo from "./Promo";
 import ProductCard from "./ProductCard";
 
+// Swiper
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
+import "swiper/css";
+
 const Catalogo = ({ onAddToCart }) => {
-  const destacados = productos.filter((p) => p.popular);
+  const productosDestacados = productos.filter((producto) => producto.popular);
+
+  // 🔹 Agrupar productos por categoría
+  const productosPorCategoria = productos.reduce((acumulador, producto) => {
+    if (!acumulador[producto.categoria]) {
+      acumulador[producto.categoria] = {
+        nombreCategoria: producto.categoria,
+        ordenCategoria: producto.ordenCategoria,
+        productos: [],
+      };
+    }
+    acumulador[producto.categoria].productos.push(producto);
+    return acumulador;
+  }, {});
+
+  // 🔹 Convertir a array y ordenar según el campo `ordenCategoria`
+  const categoriasOrdenadas = Object.values(productosPorCategoria).sort(
+    (a, b) => a.ordenCategoria - b.ordenCategoria
+  );
 
   return (
     <section className="catalogo" id="postres">
@@ -26,25 +48,48 @@ const Catalogo = ({ onAddToCart }) => {
 
       {/* 🔹 1. Carrusel de destacados */}
       <section className="destacados-section">
-        <CarruselDestacados productos={destacados} onAddToCart={onAddToCart} />
+        <CarruselDestacados
+          productos={productosDestacados}
+          onAddToCart={onAddToCart}
+        />
       </section>
 
-      {/* 🔹 2. Catálogo completo */}
+      {/* 🔹 2. Catálogo por categoría con cinta infinita */}
       <section className="catalogo-completo">
-        <h2 className="subtitulo-catalogo"> Todos los productos</h2>
-        <div className="catalogo-grid">
-          {productos.map((p, i) => (
-            <motion.div
-              key={p.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
+        <h2 className="subtitulo-catalogo">Todos los productos</h2>
+
+        {categoriasOrdenadas.map(({ nombreCategoria, productos }) => (
+          <div key={nombreCategoria} className="categoria-bloque">
+            <Swiper
+              modules={[Autoplay]}
+              spaceBetween={24}
+              loop={true}
+              autoplay={{
+                delay: 0,
+                disableOnInteraction: false,
+              }}
+              speed={5000} // ⏱️ velocidad del scroll
+              slidesPerView={1}
+              breakpoints={{
+                640: { slidesPerView: 2 },
+                1024: { slidesPerView: 3 },
+                1440: { slidesPerView: 4 },
+              }}
+              grabCursor={true}
             >
-              <ProductCard producto={p} onAddToCart={onAddToCart} />
-            </motion.div>
-          ))}
-        </div>
+              {productos.map((producto) => (
+                <SwiperSlide key={producto.id}>
+                  <div className="slide-wrapper">
+                    <ProductCard
+                      producto={producto}
+                      onAddToCart={onAddToCart}
+                    />
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
+        ))}
       </section>
 
       {/* 🔹 3. Promo final */}
