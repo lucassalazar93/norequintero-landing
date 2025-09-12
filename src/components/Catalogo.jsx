@@ -37,7 +37,7 @@ const Catalogo = ({ onAddToCart }) => {
       {/* 🔹 Encabezado premium */}
       <div className="catalogo-header">
         <h2>
-          <span className="icon">🍰</span> Nuestras{" "}
+          <span className="icon"></span> Nuestras{" "}
           <span className="highlight">creaciones</span>
         </h2>
         <p>
