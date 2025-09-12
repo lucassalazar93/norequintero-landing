@@ -5,6 +5,7 @@ import ProductoCarrito from "./ProductoCarrito";
 import FormularioEnvio from "./FormularioEnvio";
 
 export default function Carrito({ onClose, productos, setProductos }) {
+  // 📋 Estado del formulario
   const [formData, setFormData] = useState({
     nombre: "",
     apellido: "",
@@ -18,10 +19,11 @@ export default function Carrito({ onClose, productos, setProductos }) {
     correo: "",
   });
 
+  // 🚚 Costos
   const [costoDomicilio, setCostoDomicilio] = useState(0);
   const [totalFinal, setTotalFinal] = useState(0);
 
-  // 🔄 Aumentar / disminuir cantidad
+  // 🔄 Aumentar/disminuir cantidad
   const handleCantidad = (uid, delta) => {
     setProductos((prev) =>
       prev.map((p) =>
@@ -37,21 +39,20 @@ export default function Carrito({ onClose, productos, setProductos }) {
     setProductos((prev) => prev.filter((p) => p.uid !== uid));
   };
 
-  // 💰 Subtotal productos
+  // 💰 Subtotal
   const subtotal = productos.reduce((acc, p) => {
-    // ⚠️ Prevención de errores si no hay precio
     const precioUnitario =
       (typeof p.precio === "number" && p.precio) ||
       (p.presentacion?.precio ?? 0);
 
     let precioFinal = precioUnitario;
+
     if (p.promo?.tipo === "descuento") {
       precioFinal = precioUnitario - (precioUnitario * p.promo.valor) / 100;
     }
 
     let totalItem = precioFinal * (p.cantidad || 1);
 
-    // Caso 2x1
     if (p.promo?.tipo === "2x1") {
       const pares = Math.floor((p.cantidad || 1) / 2);
       const impares = (p.cantidad || 1) % 2;
@@ -64,15 +65,16 @@ export default function Carrito({ onClose, productos, setProductos }) {
   return (
     <div className="carrito-overlay">
       <div className="carrito-modal">
-        {/* Botón de cerrar */}
+        {/* Cerrar */}
         <button className="carrito-cerrar" onClick={onClose}>
           ✕
         </button>
 
         <div className="carrito-container">
-          {/* 🧁 Sección de productos */}
+          {/* 🧁 Productos */}
           <div className="productos">
             <h2>Tu pedido</h2>
+
             {productos && productos.length > 0 ? (
               productos.map((p) => (
                 <ProductoCarrito
@@ -86,7 +88,7 @@ export default function Carrito({ onClose, productos, setProductos }) {
               <p className="carrito-vacio">Tu carrito está vacío 🍪</p>
             )}
 
-            {/* Resumen de costos dinámico */}
+            {/* Resumen de costos */}
             <div className="subtotal">
               <p>
                 Subtotal: <strong>${subtotal.toLocaleString("es-CO")}</strong>
@@ -113,7 +115,7 @@ export default function Carrito({ onClose, productos, setProductos }) {
             </div>
           </div>
 
-          {/* 📋 Formulario */}
+          {/* 📋 Formulario (sticky) */}
           <FormularioEnvio
             formData={formData}
             setFormData={setFormData}

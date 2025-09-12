@@ -1,5 +1,5 @@
 // src/components/ProductCard.jsx
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../styles/ProductCard.css";
 
 const ProductCard = ({
@@ -8,16 +8,31 @@ const ProductCard = ({
   isCarousel = false,
   isPromo = false,
 }) => {
-  // Estado local para la presentación seleccionada
   const [selected, setSelected] = useState(
     producto.presentaciones ? producto.presentaciones[0] : null
   );
-  const [showMore, setShowMore] = useState(false);
+  const [expanded, setExpanded] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
-  // Manejo del botón según el contexto
+  // Detectar si es móvil
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth <= 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  // En móvil: cerrar tarjeta tras 4s
+  useEffect(() => {
+    if (expanded && isMobile) {
+      const timer = setTimeout(() => setExpanded(false), 4000);
+      return () => clearTimeout(timer);
+    }
+  }, [expanded, isMobile]);
+
+  // Acción del botón "Agregar"
   const handleClick = () => {
     if (isCarousel) {
-      // 🔹 Si es carrusel → llevar al catálogo completo (#postres)
       const section = document.getElementById("postres");
       if (section) {
         section.scrollIntoView({ behavior: "smooth" });
@@ -32,7 +47,6 @@ const ProductCard = ({
         }, 600);
       }
     } else {
-      // 🔹 Catálogo normal o promo → agregar al carrito
       if (selected) {
         onAddToCart?.({ ...producto, presentacion: selected });
       } else {
@@ -41,7 +55,7 @@ const ProductCard = ({
     }
   };
 
-  // Si el producto es promo, calculamos precio final
+  // Precio final en promos
   let precioFinal = producto.precio ?? null;
   if (
     isPromo &&
@@ -55,15 +69,14 @@ const ProductCard = ({
   return (
     <div
       id={`producto-${producto.id}`}
-      className={`card 
+      className={`card ${expanded ? "expandida" : ""} 
         ${isCarousel ? "card--carousel" : ""} 
         ${isPromo ? "card--promo" : ""}`}
+      onMouseLeave={() => !isMobile && setExpanded(false)} // 👈 cerrar al retirar mouse en desktop
     >
       {/* Imagen */}
       <div className="img-wrapper">
         <img src={producto.imagen} alt={producto.nombre} />
-
-        {/* Badge dinámico */}
         {isCarousel && <span className="badge-destacado">⭐ Top</span>}
         {isPromo && (
           <span className="badge-destacado">
@@ -78,24 +91,19 @@ const ProductCard = ({
       {/* Nombre */}
       <h3>{producto.nombre}</h3>
 
-      {/* 🔹 Descripción solo en catálogo y promo (no en carrusel) */}
+      {/* Descripción + Ver más */}
       {!isCarousel && (
         <>
-          <p className={`descripcion ${showMore ? "expandida" : ""}`}>
-            {showMore
-              ? producto.descripcion
-              : (producto.descripcion || "").slice(0, 90) +
-                (producto.descripcion?.length > 90 ? "..." : "")}
+          <p className={`descripcion ${expanded ? "expandida" : ""}`}>
+            {producto.descripcion}
           </p>
-          {producto.descripcion?.length > 90 && (
-            <span className="ver-mas" onClick={() => setShowMore(!showMore)}>
-              {showMore ? "Ver menos" : "Ver más"}
-            </span>
-          )}
+          <span className="ver-mas" onClick={() => setExpanded(!expanded)}>
+            {expanded ? "Ver menos" : "Ver más"}
+          </span>
         </>
       )}
 
-      {/* 🔹 Precios dinámicos */}
+      {/* Precios */}
       {isPromo ? (
         <div className="precio-box">
           {producto.promo?.tipo === "descuento" && producto.precio ? (
@@ -162,7 +170,7 @@ const ProductCard = ({
         </span>
       )}
 
-      {/* Botón dinámico */}
+      {/* Botón Agregar */}
       <button
         className={`btn-agregar ${isPromo ? "btn-promo" : ""}`}
         onClick={handleClick}

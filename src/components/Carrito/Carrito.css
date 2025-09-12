@@ -1,3 +1,8 @@
+:root {
+  /* Ajusta esto a la altura real de tu navbar fijo */
+  --nav-height: 80px;
+}
+
 /* ===========================
    CARRITO GENERAL
 =========================== */
@@ -22,8 +27,8 @@
    SECCIÓN PRODUCTOS
 =========================== */
 .productos {
-  flex: 1;
-  min-width: 320px;
+  flex: 1.2;
+  min-width: 360px;
   animation: fadeSlideIn 0.6s ease;
 }
 
@@ -245,16 +250,20 @@
 }
 
 /* ===========================
-   FORMULARIO ENVÍO
+   FORMULARIO ENVÍO (sticky)
 =========================== */
 .formulario {
-  flex: 1;
+  flex: 0 1 420px;
   min-width: 320px;
   background: linear-gradient(145deg, #ffffff, #fff7fb);
   padding: 2.5rem;
   border-radius: 24px;
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
   animation: fadeSlideIn 0.8s ease;
+
+  /* Mantener visible a la derecha */
+  position: sticky;
+  top: calc(var(--nav-height) + 24px);
 }
 
 .formulario h2 {
@@ -368,10 +377,13 @@
   inset: 0;
   background: rgba(0, 0, 0, 0.55);
   display: flex;
-  align-items: center;
+  align-items: flex-start; /* para respetar top padding */
   justify-content: center;
-  z-index: 999;
+  z-index: 10000; /* por encima del navbar */
   backdrop-filter: blur(6px);
+  padding-top: calc(var(--nav-height) + 20px);
+  padding-bottom: 20px;
+  overflow-y: auto;
 }
 
 .carrito-modal {
@@ -380,8 +392,7 @@
   border-radius: 26px;
   width: 95%;
   max-width: 1100px;
-  max-height: 90vh;
-  overflow-y: auto;
+  /* la altura se maneja por el overlay con scroll */
   padding: 2.5rem;
   position: relative;
   animation: fadeBlurIn 0.6s ease;
@@ -443,17 +454,14 @@
 }
 
 @keyframes pulse {
-  0% {
+  0%,
+  100% {
     transform: scale(1);
     opacity: 0.8;
   }
   50% {
     transform: scale(1.2);
     opacity: 1;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 0.8;
   }
 }
 
@@ -465,12 +473,14 @@
     flex-direction: column;
     gap: 2rem;
   }
-
   .productos,
   .formulario {
     width: 100%;
   }
-
+  .formulario {
+    position: static;
+    top: auto;
+  }
   .subtotal {
     text-align: center;
   }

@@ -24,17 +24,23 @@ import cupcakesVainillaChips from "../assets/productos/cupcakes-vainilla-chips.p
 import cupcakesChocolate from "../assets/productos/cupcakes-chocolate.png";
 import cupcakesFerrero from "../assets/productos/cupcakes-ferrero.png";
 import cupcakesRedVelvet from "../assets/productos/cupcakes-redvelvet.png";
+import paveMilo from "../assets/productos/pave-milo.png";
+import tresLechesFrutas from "../assets/productos/tresleches.png";
+import brownie from "../assets/productos/brownie.png";
 
 const productos = [
   {
     id: 1,
-    categoria: "Tortas",
-    ordenCategoria: 1,
+    categoria: "Individuales",
+    ordenCategoria: 5,
     nombre: "Pavé de Leche Klim",
     descripcion:
       "Suave y cremoso pavé elaborado con leche Klim, capas de galleta y un toque artesanal que derrite el corazón.",
-    precio: 28900,
-    presentaciones: [],
+    precio: null,
+    presentaciones: [
+      { tipo: "Personal", precio: 15000 },
+      { tipo: "Cont. 12 porciones", precio: 110000 },
+    ],
     imagen: pave,
     popular: true,
     promo: null,
@@ -454,6 +460,51 @@ const productos = [
       { tipo: "Caja x6", precio: 36000 },
     ],
     imagen: cupcakesRedVelvet,
+    popular: false,
+    promo: null,
+  },
+  {
+    id: 26,
+    categoria: "Individuales",
+    ordenCategoria: 5,
+    nombre: "Pavé de Milo",
+    descripcion:
+      "Suave y cremoso pavé artesanal con el inconfundible sabor de Milo, capas de galleta y un toque irresistible que encanta a grandes y pequeños.",
+    precio: null,
+    presentaciones: [
+      { tipo: "Personal", precio: 15000 },
+      { tipo: "Cont. 12 porciones", precio: 110000 },
+    ],
+    imagen: paveMilo,
+    popular: false,
+    promo: null,
+  },
+  {
+    id: 27,
+    categoria: "Individuales",
+    ordenCategoria: 5,
+    nombre: "Tres Leches con Frutas",
+    descripcion:
+      "Delicioso postre tres leches artesanal, suave y esponjoso, bañado en leche condensada y cubierto con frutas frescas de temporada.",
+    precio: null,
+    presentaciones: [{ tipo: "Porción individual", precio: 12000 }],
+    imagen: tresLechesFrutas,
+    popular: false,
+    promo: null,
+  },
+  {
+    id: 28,
+    categoria: "Individuales",
+    ordenCategoria: 5,
+    nombre: "Brownies",
+    descripcion:
+      "Irresistibles brownies artesanales de chocolate, con textura suave por dentro y capa ligeramente crujiente por fuera.",
+    precio: null,
+    presentaciones: [
+      { tipo: "Individual", precio: 6000 },
+      { tipo: "Caja x4", precio: 18000 },
+    ],
+    imagen: brownie,
     popular: false,
     promo: null,
   },
