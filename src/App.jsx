@@ -6,10 +6,14 @@ import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Cinta from "./components/Cinta";
 import Catalogo from "./components/Catalogo";
+import PromoTemporada from "./components/PromoTemporada"; // 👈 nuevo
 import SobreNosotros from "./components/SobreNosotros";
 import Embudo from "./components/Embudo";
 import Footer from "./components/Footer";
 import Carrito from "./components/Carrito/Carrito";
+
+// 🔹 Data
+import promociones from "./data/promociones"; // 👈 data para promos
 
 // 🔹 Páginas legales
 import PoliticaPrivacidad from "./pages/PoliticaPrivacidad";
@@ -62,6 +66,13 @@ export default function App() {
               <Hero />
               <Cinta />
               <Catalogo onAddToCart={addToCart} />
+
+              {/* 🎁 Promociones de temporada con empaques */}
+              <PromoTemporada
+                promociones={promociones}
+                onAddToCart={addToCart}
+              />
+
               <SobreNosotros />
               <Embudo />
             </>

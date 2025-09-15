@@ -34,7 +34,7 @@ export default function Carrito({ onClose, productos, setProductos }) {
     );
   };
 
-  // ❌ Eliminar producto
+  // ❌ Eliminar producto (solo esa fila)
   const eliminarProducto = (uid) => {
     setProductos((prev) => prev.filter((p) => p.uid !== uid));
   };
@@ -65,20 +65,20 @@ export default function Carrito({ onClose, productos, setProductos }) {
   return (
     <div className="carrito-overlay">
       <div className="carrito-modal">
-        {/* Cerrar */}
+        {/* ❌ Botón cerrar */}
         <button className="carrito-cerrar" onClick={onClose}>
           ✕
         </button>
 
         <div className="carrito-container">
-          {/* 🧁 Productos */}
+          {/* 🧁 Lista de productos */}
           <div className="productos">
             <h2>Tu pedido</h2>
 
             {productos && productos.length > 0 ? (
               productos.map((p) => (
                 <ProductoCarrito
-                  key={p.uid}
+                  key={p.uid} // 👈 clave única por producto + presentación
                   producto={p}
                   handleCantidad={handleCantidad}
                   eliminarProducto={eliminarProducto}
@@ -88,7 +88,7 @@ export default function Carrito({ onClose, productos, setProductos }) {
               <p className="carrito-vacio">Tu carrito está vacío 🍪</p>
             )}
 
-            {/* Resumen de costos */}
+            {/* 🧾 Resumen de costos */}
             <div className="subtotal">
               <p>
                 Subtotal: <strong>${subtotal.toLocaleString("es-CO")}</strong>
@@ -115,7 +115,7 @@ export default function Carrito({ onClose, productos, setProductos }) {
             </div>
           </div>
 
-          {/* 📋 Formulario (sticky) */}
+          {/* 📋 Formulario de envío */}
           <FormularioEnvio
             formData={formData}
             setFormData={setFormData}

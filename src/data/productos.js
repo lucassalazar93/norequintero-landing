@@ -25,7 +25,6 @@ import cupcakesChocolate from "../assets/productos/cupcakes-chocolate.png";
 import cupcakesFerrero from "../assets/productos/cupcakes-ferrero.png";
 import cupcakesRedVelvet from "../assets/productos/cupcakes-redvelvet.png";
 import paveMilo from "../assets/productos/pave-milo.png";
-import tresLechesFrutas from "../assets/productos/tresleches.png";
 import brownie from "../assets/productos/brownie.png";
 
 const productos = [
@@ -39,7 +38,7 @@ const productos = [
     precio: null,
     presentaciones: [
       { tipo: "Personal", precio: 15000 },
-      { tipo: "Cont. 12 porciones", precio: 110000 },
+      { tipo: "Cont. 12 porciones", precio: 100000 },
     ],
     imagen: pave,
     popular: true,
@@ -52,8 +51,12 @@ const productos = [
     nombre: "Torta Red Velvet",
     descripcion:
       "Clásica torta Red Velvet, esponjosa y aterciopelada, con un delicado relleno y cobertura de crema de queso.",
-    precio: 38900,
-    presentaciones: [],
+    precio: null,
+    presentaciones: [
+      { tipo: "2 porciones", precio: 18000 },
+      { tipo: "6 porciones", precio: 35000 },
+      { tipo: "10 porciones", precio: 65000 },
+    ],
     imagen: redVelvet,
     popular: true,
     promo: {
@@ -62,6 +65,7 @@ const productos = [
       descripcion: "20% OFF solo esta semana 🎉",
     },
   },
+
   {
     id: 3,
     categoria: "Individuales",
@@ -125,13 +129,14 @@ const productos = [
     precio: null,
     presentaciones: [
       { tipo: "Porción individual", precio: 12000 },
-      { tipo: "Mini Cheesecake", precio: 25000 },
-      { tipo: "Tamaño familiar", precio: 48000 },
+      { tipo: "10 porciones", precio: 80000 },
+      { tipo: "14 porciones", precio: 95000 },
     ],
     imagen: cheesecakeAmarillos,
     popular: false,
     promo: null,
   },
+
   {
     id: 7,
     categoria: "Cheesecakes",
@@ -142,8 +147,8 @@ const productos = [
     precio: null,
     presentaciones: [
       { tipo: "Porción individual", precio: 12000 },
-      { tipo: "Mini Cheesecake", precio: 25000 },
-      { tipo: "Tamaño familiar", precio: 48000 },
+      { tipo: "10 porciones", precio: 80000 },
+      { tipo: "14 porciones", precio: 95000 },
     ],
     imagen: cheesecakeRojos,
     popular: true,
@@ -153,6 +158,7 @@ const productos = [
       descripcion: "Incluye empaque de regalo 🎁 en compras familiares",
     },
   },
+
   {
     id: 8,
     categoria: "Cheesecakes",
@@ -163,13 +169,14 @@ const productos = [
     precio: null,
     presentaciones: [
       { tipo: "Porción individual", precio: 12000 },
-      { tipo: "Mini Cheesecake", precio: 26000 },
-      { tipo: "Tamaño familiar", precio: 50000 },
+      { tipo: "10 porciones", precio: 80000 },
+      { tipo: "14 porciones", precio: 95000 },
     ],
     imagen: cheesecakeOreo,
     popular: true,
     promo: null,
   },
+
   {
     id: 9,
     categoria: "Cheesecakes",
@@ -179,14 +186,15 @@ const productos = [
       "Refrescante cheesecake artesanal con base crocante y una cremosa mezcla de limón, coronado con ralladura cítrica para un sabor único.",
     precio: null,
     presentaciones: [
-      { tipo: "Porción individual", precio: 11000 },
-      { tipo: "Mini Cheesecake", precio: 23000 },
-      { tipo: "Tamaño familiar", precio: 46000 },
+      { tipo: "Porción individual", precio: 12000 },
+      { tipo: "10 porciones", precio: 80000 },
+      { tipo: "14 porciones", precio: 95000 },
     ],
     imagen: cheesecakeLimon,
     popular: true,
     promo: null,
   },
+
   {
     id: 10,
     categoria: "Cheesecakes",
@@ -197,13 +205,14 @@ const productos = [
     precio: null,
     presentaciones: [
       { tipo: "Porción individual", precio: 12000 },
-      { tipo: "Mini Cheesecake", precio: 26000 },
-      { tipo: "Tamaño familiar", precio: 49000 },
+      { tipo: "10 porciones", precio: 80000 },
+      { tipo: "14 porciones", precio: 95000 },
     ],
     imagen: cheesecakeMilo,
     popular: false,
     promo: null,
   },
+
   {
     id: 11,
     categoria: "Tortas",
@@ -279,7 +288,6 @@ const productos = [
     nombre: "Pannacotta de Frutos Amarillos",
     descripcion:
       "Delicada panacota artesanal de textura cremosa, acompañada de una fresca mezcla de frutos amarillos tropicales.",
-    precio: 15000,
     presentaciones: [{ tipo: "8oz", precio: 15000 }],
     imagen: pannaFrutosAmarillos,
     popular: false,
@@ -292,7 +300,6 @@ const productos = [
     nombre: "Panacota de Frutos Rojos",
     descripcion:
       "Panacota artesanal de textura suave y cremosa, coronada con una mezcla fresca de frutos rojos que equilibran dulzura y acidez.",
-    precio: 15000,
     presentaciones: [{ tipo: "8oz", precio: 15000 }],
     imagen: pannaFrutosRojos,
     popular: false,
@@ -305,7 +312,6 @@ const productos = [
     nombre: "Panacota de Baileys",
     descripcion:
       "Exquisita panacota artesanal con un toque de licor Baileys, cremosa y sofisticada, ideal para los paladares que buscan un postre único.",
-    precio: 15000,
     presentaciones: [{ tipo: "8oz", precio: 15000 }],
     imagen: pannabaileys,
     popular: false,
@@ -318,27 +324,25 @@ const productos = [
     nombre: "Panacota de Durazno",
     descripcion:
       "Panacota artesanal suave y cremosa, acompañada de trozos frescos de durazno que aportan dulzura natural y un toque frutal irresistible.",
-    precio: 15000,
     presentaciones: [{ tipo: "8oz", precio: 15000 }],
     imagen: pannaDurazno,
     popular: false,
     promo: null,
   },
   {
-    id: 17,
+    id: 19,
     categoria: "Pannacotta",
     ordenCategoria: 4,
     nombre: "Panacota de Frutos Rojos",
     descripcion:
       "Panacota artesanal de textura suave y cremosa, coronada con una mezcla fresca de frutos rojos que equilibran dulzura y acidez.",
-    precio: 15000,
     presentaciones: [{ tipo: "8oz", precio: 15000 }],
     imagen: pannaFrutosRojos,
     popular: false,
     promo: null,
   },
   {
-    id: 19,
+    id: 20,
     categoria: "Cupcakes",
     ordenCategoria: 2,
     nombre: "Cupcakes Canela y Limón",
@@ -356,7 +360,7 @@ const productos = [
     promo: null,
   },
   {
-    id: 20,
+    id: 21,
     categoria: "Cupcakes",
     ordenCategoria: 2,
     nombre: "Cupcakes Fiesta de Oreo",
@@ -374,7 +378,7 @@ const productos = [
     promo: null,
   },
   {
-    id: 21,
+    id: 22,
     categoria: "Cupcakes",
     ordenCategoria: 2,
     nombre: "Cupcakes Vainilla y Cereza",
@@ -392,7 +396,7 @@ const productos = [
     promo: null,
   },
   {
-    id: 22,
+    id: 23,
     categoria: "Cupcakes",
     ordenCategoria: 2,
     nombre: "Cupcakes Vainilla con Chips de Chocolate",
@@ -410,7 +414,7 @@ const productos = [
     promo: null,
   },
   {
-    id: 23,
+    id: 24,
     categoria: "Cupcakes",
     ordenCategoria: 2,
     nombre: "Cupcakes de Chocolate",
@@ -428,7 +432,7 @@ const productos = [
     promo: null,
   },
   {
-    id: 24,
+    id: 25,
     categoria: "Cupcakes",
     ordenCategoria: 2,
     nombre: "Cupcakes Ferrero Rocher",
@@ -446,7 +450,7 @@ const productos = [
     promo: null,
   },
   {
-    id: 25,
+    id: 26,
     categoria: "Cupcakes",
     ordenCategoria: 2,
     nombre: "Cupcakes Red Velvet",
@@ -464,7 +468,7 @@ const productos = [
     promo: null,
   },
   {
-    id: 26,
+    id: 27,
     categoria: "Individuales",
     ordenCategoria: 5,
     nombre: "Pavé de Milo",
@@ -480,34 +484,68 @@ const productos = [
     promo: null,
   },
   {
-    id: 27,
+    id: 29,
     categoria: "Individuales",
     ordenCategoria: 5,
-    nombre: "Tres Leches con Frutas",
+    nombre: "Brownie artesanal",
     descripcion:
-      "Delicioso postre tres leches artesanal, suave y esponjoso, bañado en leche condensada y cubierto con frutas frescas de temporada.",
-    precio: null,
-    presentaciones: [{ tipo: "Porción individual", precio: 12000 }],
-    imagen: tresLechesFrutas,
-    popular: false,
-    promo: null,
-  },
-  {
-    id: 28,
-    categoria: "Individuales",
-    ordenCategoria: 5,
-    nombre: "Brownies",
-    descripcion:
-      "Irresistibles brownies artesanales de chocolate, con textura suave por dentro y capa ligeramente crujiente por fuera.",
+      "Irresistible brownie artesanal de chocolate, suave por dentro y con una ligera capa crocante por fuera.",
     precio: null,
     presentaciones: [
-      { tipo: "Individual", precio: 6000 },
-      { tipo: "Caja x4", precio: 18000 },
+      { tipo: "1 unidad", precio: 6000 },
+      { tipo: "Caja x4 unidades", precio: 18000 },
     ],
     imagen: brownie,
     popular: false,
     promo: null,
   },
+  {
+    id: 30,
+    categoria: "Individuales",
+    ordenCategoria: 5,
+    nombre: "Pavé de Milo",
+    descripcion:
+      "Suave y cremoso pavé artesanal con el inconfundible sabor de Milo, capas de galleta y un toque irresistible que encanta a grandes y pequeños.",
+    precio: null,
+    presentaciones: [
+      { tipo: "Personal", precio: 15000 },
+      { tipo: "Cont. 12 porciones", precio: 110000 },
+    ],
+    imagen: paveMilo,
+    popular: false,
+    promo: null,
+  },
+
+  //{
+  //  id: 28,
+  // categoria: "Cheesecakes",
+  // ordenCategoria: 3,
+  // nombre: "Cheesecake de Frutos Amarillos",
+  //  descripcion:
+  //    "Delicioso cheesecake artesanal con base crocante y una cubierta fresca de frutos amarillos tropicales.",
+  // precio: null,
+  // presentaciones: [
+  //   { tipo: "Porción individual", precio: 12000 },
+  //   { tipo: "Mini Cheesecake", precio: 25000 },
+  //    { tipo: "Tamaño familiar", precio: 48000 },
+  // ],
+  //  imagen: cheesecakeAmarillos,
+  // popular: false,
+  // promo: null,
+  //},
+  //{
+  // id: 29,
+  //  categoria: "Pannacotta",
+  // ordenCategoria: 4,
+  // nombre: "Pannacotta de Frutos Amarillos",
+  // descripcion:
+  //   "Delicada panacota artesanal de textura cremosa, acompañada de una fresca mezcla de frutos amarillos tropicales.",
+  // precio: null,
+  //  presentaciones: [{ tipo: "8oz", precio: 15000 }],
+  //  imagen: pannaFrutosAmarillos,
+  // popular: false,
+  //  promo: null,
+  // },
 ];
 
 export default productos;

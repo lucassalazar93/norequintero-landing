@@ -1,0 +1,255 @@
+/* ===============================
+   🎁 SECCIÓN PROMOS DE TEMPORADA
+================================= */
+.promo-temporada {
+  background: radial-gradient(circle at top left, #fff5f7, #fde8ef);
+  padding: 4rem 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 🌟 Encabezado */
+.promo-header h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 3rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #b83260, #ff4e7a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1rem;
+  text-shadow: 0 6px 18px rgba(255, 78, 122, 0.25);
+  animation: fadeInLeft 1s ease forwards;
+}
+
+.promo-header .icono-titulo {
+  font-size: 2.4rem;
+  margin-right: 0.5rem;
+}
+
+.promo-header p {
+  max-width: 720px;
+  margin: 0 auto 3rem;
+  font-family: "Poppins", sans-serif;
+  color: #444;
+  font-size: 1.15rem;
+  line-height: 1.8;
+  opacity: 0.95;
+}
+
+/* 🧁 Grid de promos */
+.promo-grid {
+  display: grid;
+  gap: 2.2rem;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+}
+
+/* 🎀 Tarjeta */
+.promo-card {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeInLeft 1s ease forwards;
+  width: 100%;
+  max-width: 370px;
+  text-align: center;
+}
+
+.promo-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 12px 32px rgba(255, 78, 122, 0.25);
+}
+
+/* Imagen */
+.promo-img {
+  position: relative;
+  height: 260px;
+  overflow: hidden;
+  border-bottom: 1px solid #f9d9e0;
+}
+
+.promo-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.45s ease;
+}
+
+.promo-card:hover .promo-img img {
+  transform: scale(1.08);
+}
+
+/* Etiquetas premium */
+.promo-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: linear-gradient(to right, #ff7eb3, #ff758c);
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  font-family: "Poppins", sans-serif;
+  box-shadow: 0 2px 8px rgba(255, 78, 122, 0.25);
+}
+
+/* Contenido */
+.promo-body {
+  padding: 1.5rem 1.5rem 2rem;
+}
+
+.promo-body h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 1.5rem;
+  color: #6d003b;
+  margin-bottom: 0.8rem;
+  font-weight: 700;
+}
+
+/* Descripción con "Ver más" */
+.promo-descripcion {
+  font-family: "Poppins", sans-serif;
+  color: #555;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  text-align: center;
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* muestra solo 2 líneas */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  transition: all 0.4s ease;
+}
+
+.promo-descripcion.expanded {
+  -webkit-line-clamp: unset;
+  max-height: 500px;
+}
+
+/* Botón "Ver más" */
+.ver-mas-btn {
+  background: none;
+  border: none;
+  color: #d63384;
+  font-weight: 500;
+  margin: 0.3rem 0 1rem;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-family: "Poppins", sans-serif;
+  transition: all 0.3s ease;
+}
+
+.ver-mas-btn:hover {
+  text-decoration: underline;
+  color: #a61e56;
+}
+
+/* Selector de presentaciones */
+.promo-select-box {
+  margin-bottom: 1rem;
+}
+
+.promo-select-box label {
+  display: block;
+  font-size: 0.9rem;
+  color: #6d003b;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.promo-select-box select {
+  width: 100%;
+  padding: 0.7rem;
+  border-radius: 12px;
+  border: 1px solid #ffd6e0;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.9rem;
+  color: #333;
+  background: #fff;
+  transition: border-color 0.3s;
+  text-align: center;
+}
+
+.promo-select-box select:focus {
+  border-color: #ff4e7a;
+  outline: none;
+}
+
+/* Botón CTA */
+.promo-btn {
+  background: linear-gradient(to right, #ff7eb3, #ff758c);
+  border: none;
+  color: #fff;
+  font-weight: bold;
+  padding: 1rem 1.4rem;
+  border-radius: 40px;
+  cursor: pointer;
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  box-shadow: 0 6px 20px rgba(255, 78, 122, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  text-align: center;
+}
+
+.promo-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 24px rgba(255, 78, 122, 0.4);
+}
+
+/* ✨ Animaciones */
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .promo-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .promo-img {
+    height: 220px;
+  }
+}
+
+@media (max-width: 768px) {
+  .promo-header h2 {
+    font-size: 2.3rem;
+  }
+  .promo-body h3 {
+    font-size: 1.2rem;
+  }
+  .promo-img {
+    height: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .promo-grid {
+    grid-template-columns: 1fr;
+  }
+  .promo-img {
+    height: 180px;
+  }
+  .promo-body {
+    padding: 1rem;
+  }
+}

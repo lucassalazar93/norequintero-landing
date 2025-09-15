@@ -1,6 +1,6 @@
 // src/components/Carrito/FormularioEnvio.jsx
 import React, { useState, useEffect } from "react";
-import { jsPDF } from "jspdf"; // ✅ Importar librería
+import { jsPDF } from "jspdf"; // ✅ Generar PDF
 import { comunasMedellin } from "../../data/comunasMedellin";
 
 export default function FormularioEnvio({
@@ -45,7 +45,7 @@ export default function FormularioEnvio({
     setTotalFinal,
   ]);
 
-  // 🔄 Inputs
+  // 🔄 Manejar inputs
   const handleInput = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -114,15 +114,17 @@ export default function FormularioEnvio({
     return { precioUnitario, total };
   };
 
-  // ✅ Generar WhatsApp
+  // ✅ Generar WhatsApp con TODOS los datos
   const generarMensajeWhatsApp = () => {
     let mensaje = `*🍰 Pedido desde la página NoreQuintero*\n\n`;
+
     productos.forEach((p) => {
       const { total } = calcularTotalProducto(p);
       mensaje += `• *${p.nombre}* ${
         p.presentacion ? `(${p.presentacion.tipo})` : ""
       } x${p.cantidad} - *$${total.toLocaleString("es-CO")}*\n`;
     });
+
     mensaje += `\n📦 *Subtotal:* $${subtotal.toLocaleString("es-CO")}\n`;
     mensaje += `🚚 *Domicilio:* ${
       subtotal >= 100000
@@ -134,11 +136,19 @@ export default function FormularioEnvio({
     mensaje += `💰 *Total:* $${(subtotal + costoDomicilio).toLocaleString(
       "es-CO"
     )}\n\n`;
-    mensaje += `👤 *Cliente:* ${formData.nombre} ${formData.apellido}\n📱 ${formData.celular}\n🏠 ${formData.direccion}\n`;
+
+    mensaje += `👤 *Cliente:* ${formData.nombre} ${formData.apellido}\n`;
+    mensaje += `📱 Celular: ${formData.celular}\n`;
+    mensaje += `🏠 Dirección: ${formData.direccion}\n`;
+    if (formData.correo) mensaje += `✉️ Correo: ${formData.correo}\n`;
+    mensaje += `🏙️ Comuna: ${formData.comuna}\n`;
+    mensaje += `📍 Barrio: ${formData.barrio}\n`;
+    mensaje += `💳 Método de pago: ${formData.metodo}\n`;
+
     return `https://wa.me/573507881893?text=${encodeURIComponent(mensaje)}`;
   };
 
-  // ✅ Generar PDF básico
+  // ✅ Generar PDF
   const generarPDF = () => {
     const doc = new jsPDF();
     doc.setFont("helvetica", "bold");
@@ -147,6 +157,7 @@ export default function FormularioEnvio({
 
     let y = 40;
     doc.setFontSize(12);
+
     productos.forEach((p) => {
       const { total } = calcularTotalProducto(p);
       doc.text(
@@ -194,8 +205,9 @@ export default function FormularioEnvio({
     doc.text(`Comuna: ${formData.comuna}`, 20, y);
     y += 10;
     doc.text(`Barrio: ${formData.barrio}`, 20, y);
+    y += 10;
+    doc.text(`Método de pago: ${formData.metodo}`, 20, y);
 
-    // Descargar PDF
     doc.save("Pedido_NoreQuintero.pdf");
   };
 
@@ -208,8 +220,8 @@ export default function FormularioEnvio({
     }
     // 1. WhatsApp
     window.open(generarMensajeWhatsApp(), "_blank");
-    // 2. PDF
-    generarPDF();
+    // 2. PDF (por ahora deshabilitado)
+    // generarPDF();
   };
 
   return (
